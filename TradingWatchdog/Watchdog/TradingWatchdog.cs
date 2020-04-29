@@ -41,6 +41,12 @@ namespace TradingWatchdog.Watchdog
                 .ToList();
             tasks.AddRange(dealListeningTasks);
 
+            if (!dealListeningTasks.Any())
+            {
+                Console.WriteLine("There are no servers to connect to");
+                Console.WriteLine();
+            }
+
             return tasks;
         }
 

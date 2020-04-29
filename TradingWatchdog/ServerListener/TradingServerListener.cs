@@ -31,7 +31,7 @@ namespace TradingWatchdog.ServerListener
         {
             try
             {
-                _api.ConnectionEvents.ConnectedEventHandler += ConnectionEvents_ConnectedEventHandler; ;
+                _api.ConnectionEvents.ConnectedEventHandler += ConnectionEvents_ConnectedEventHandler;
                 _api.ConnectionEvents.DisconnectedEventHandler += ConnectionEvents_DisconnectedEventHandler;
                 _api.DealEvents.DealAddEventHandler += DealEvents_DealAddEventHandler;
 
@@ -65,7 +65,7 @@ namespace TradingWatchdog.ServerListener
             {
                 _api.Disconnect();
 
-                _api.ConnectionEvents.ConnectedEventHandler -= ConnectionEvents_ConnectedEventHandler; ;
+                _api.ConnectionEvents.ConnectedEventHandler -= ConnectionEvents_ConnectedEventHandler;
                 _api.ConnectionEvents.DisconnectedEventHandler -= ConnectionEvents_DisconnectedEventHandler;
                 _api.DealEvents.DealAddEventHandler -= DealEvents_DealAddEventHandler;
             }

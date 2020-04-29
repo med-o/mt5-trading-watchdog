@@ -31,7 +31,7 @@ namespace TradingWatchdog.Tests
 
             // assert
             Assert.IsTrue(underTest.QueuedTrades.Count == 0, "All trades should be processed");
-            Assert.IsTrue(underTest.ProcessedTrades.Count == 3, "All trades should be processed");
+            Assert.IsTrue(underTest.ProcessedTrades.Count == 2, "One trade should be removed by retention policy task");
             Assert.IsTrue(underTest.FlaggedTrades.Count == 1, "Third trade should trigger match with the second one");
             Assert.IsTrue(underTest.FlaggedTrades[0].Trade.Id == trades[2].Id);
             Assert.IsTrue(underTest.FlaggedTrades[0].Match.Id == trades[1].Id);
@@ -54,7 +54,7 @@ namespace TradingWatchdog.Tests
 
             // assert
             Assert.IsTrue(underTest.QueuedTrades.Count == 0, "All trades should be processed");
-            Assert.IsTrue(underTest.ProcessedTrades.Count == 5, "All trades should be processed");
+            Assert.IsTrue(underTest.ProcessedTrades.Count == 4, "One trade should be removed by retention policy task");
             Assert.IsTrue(underTest.FlaggedTrades.Count == 3, "Fourth trade triggers one match and fifth matches two of them");
             Assert.IsTrue(underTest.FlaggedTrades[0].Trade.Id == trades[3].Id);
             Assert.IsTrue(underTest.FlaggedTrades[0].Match.Id == trades[1].Id);
@@ -73,7 +73,7 @@ namespace TradingWatchdog.Tests
             };
             var monitoringSettings = new MonitoringSettings()
             {
-                RetentionPeriod = 30
+                RetentionPeriod = 3
             };
             var settingsRepositoryMock = new Mock<IValidationSettingsRepository>();
             settingsRepositoryMock.Setup(r => r.Get()).Returns(validationSettings);

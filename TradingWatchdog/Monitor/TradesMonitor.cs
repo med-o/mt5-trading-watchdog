@@ -62,6 +62,9 @@ namespace TradingWatchdog.Monitor
 
         private Task DetectSuspiciousTrades(CancellationToken token)
         {
+            Console.WriteLine("Monitoring suspicious trade activity");
+            Console.WriteLine();
+
             while (!token.IsCancellationRequested)
             {
                 if (QueuedTrades.TryDequeue(out var newTrade))
@@ -90,6 +93,9 @@ namespace TradingWatchdog.Monitor
 
         private Task RetentionPolicy(CancellationToken token)
         {
+            Console.WriteLine("Applying trades retention policy");
+            Console.WriteLine();
+
             while (!token.IsCancellationRequested)
             {
                 if (ProcessedTrades.TryPeek(out var trade))

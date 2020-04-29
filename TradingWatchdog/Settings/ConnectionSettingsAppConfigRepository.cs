@@ -1,4 +1,5 @@
-﻿using System.Collections.Specialized;
+﻿using System;
+using System.Collections.Specialized;
 using System.Configuration;
 using System.Linq;
 
@@ -9,7 +10,8 @@ namespace TradingWatchdog.Settings
         public ConnectionSettings Get()
         {
             var connectionSettings = ConfigurationManager.GetSection("Connection") as NameValueCollection;
-            var serverList = connectionSettings["Servers"]?.Split(' ').ToList();
+            var serverList = connectionSettings["Servers"]
+                ?.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries).ToList();
             ulong.TryParse(connectionSettings["Login"], out var login);
             var passwd = connectionSettings["Password"];
             int.TryParse(connectionSettings["RetryCount"], out var retryCount);
