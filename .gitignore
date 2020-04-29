@@ -1,0 +1,56 @@
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Bb]in/*
+[Oo]bj/*
+*/[Bb]in/*
+*/[Oo]bj/*
+[Bb]uildOutput/*
+
+# Visual Studio 2015 cache/options directory
+.vs/
+
+# Visual Studio Code cache/options directory
+.vscode/
+
+# ReSharpe
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+*.DotSettings
+
+# Diff / Compare
+*.orig
+
+TestResults/*
+Build/*
+packages
+*.testsettings
+*.rej
+*.swp
+~*
+*.bak
+**.pdb
+**.dll
+**/*.dll
+**/*.pdb
+**.mrx
+**/*.mrx
+*Upgrade*
+.sass-cache/*
+*\NuGet.Config
+*\NuGet.exe
+*\NuGet.targets
+StyleCop.Cache
+Visual Studio 2015/*
+**/*.css.map
+*.vssettings
+NDependOut/*
+**/.vscode/*
+**/*.ndproj
+*/node_modules/* 
+output/*
