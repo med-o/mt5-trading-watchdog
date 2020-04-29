@@ -54,3 +54,5 @@ NDependOut/*
 **/*.ndproj
 */node_modules/* 
 output/*
+
+!3rdParty/**/*.dll
